@@ -1,0 +1,154 @@
+  
+<!-- <mat-progress-bar value=30 mode="indeterminate"></mat-progress-bar> -->
+
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark">
+
+      <button class="navbar-toggler hidden-sm-up" (click)="onButtonClick()" type="button" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="col align-self-center" item-width="100%">
+      <a class="navbar-brand" href="#"> -->
+          <!-- <img src="assets/banners/Logos/logo.png" height="74px" class="btn my-0 my-sm-0"> -->
+      <!-- </a>
+      </div>
+     
+      <mat-drawer-container *ngIf="" class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="over">
+          Hello....
+        </mat-drawer>
+      </mat-drawer-container>
+
+      <div class="collapse navbar-collapse" id="navbarsDefault">
+          <div class="col align-self-center">
+            <nav mat-tab-nav-bar class="float-right">
+              <a mat-tab-link *ngFor="let link of appRoutes"
+                [routerLink]="link.path"
+                routerLinkActive #rla="routerLinkActive"
+                [routerLinkActiveOptions]="{exact:true}"
+                [active]="rla.isActive">
+                 {{link.name}}
+              </a>
+            </nav>
+          </div>
+      </div>
+
+    </nav> -->
+
+
+    
+
+
+
+    <!-- <mat-drawer-container class="example-container collapse navbar-collapse" autosize >
+           
+        <mat-drawer #drawer class="example-sidenav" mode="over">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active" *ngFor="let link of appRoutes">
+                    <a
+                    [routerLink]="link.path"
+                    >
+                     {{link.name}}
+                  </a>
+                </li>
+              </ul> 
+        </mat-drawer>
+      </mat-drawer-container> -->
+
+
+
+      <!-- <nav class="navbar navbar-expand-sm navbar-light bg-faded">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button> -->
+        
+        <!-- Brand -->
+        <!-- <a class="navbar-brand" href="#">Logo</a> -->
+        
+        <!-- Links -->
+        <!-- <div class="collapse navbar-collapse" id="nav-content">   
+        <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" href="#">Link 1</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Link 2</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Link 3</a>
+        </li>
+        </ul>
+        </div>
+        </nav> -->
+
+
+        <mat-sidenav-container class="sidenav-container">
+
+          <!-- SideNavigation bar when mobile view -->
+          <mat-sidenav #drawer class="sidenav"
+              [ngClass]="{hidden: !(isHandset$ | async)}"
+              fixedInViewport="false"
+              [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+              [mode]="(isHandset$ | async) ? 'over' : 'side'"
+              [opened]="!(isHandset$ | async)">
+            <mat-toolbar>Menu</mat-toolbar>
+            
+            <mat-nav-list>
+              <a mat-list-item *ngFor="let link of appRoutes"
+                 [routerLink]="link.path"
+                 (click)="drawer.toggle()">
+                 {{link.name}}
+              </a>
+            </mat-nav-list>
+          </mat-sidenav>
+
+          <mat-sidenav-content>
+              <div class="topnavbar" #topNav [ngStyle]="{'top': isScrollDown ? '-25px' : '0'}">
+                  <span>Request a call back: </span>
+              </div>
+            <!-- Navigation bar when desktop view -->
+            <!-- <div   #mainNav> -->
+            <mat-toolbar color="primary" class="fixed-toolbar" [ngClass]="{'mainNavShrink': isScrollDown }" [ngStyle]="{'top': isScrollDown ? '0px' : '25px'}">
+              <!-- Menu button for sidenav when mobile view -->
+              <button
+                type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+              </button>
+
+              <!-- application title -->
+              <span>learn-app</span>
+
+              <span class="spacer"></span>
+              <nav mat-tab-nav-bar class="float-right" *ngIf="!(isHandset$ | async)">
+                  <a mat-tab-link *ngFor="let link of appRoutes"
+                    [id] = "link.name"
+                    [routerLink]="link.path"
+                    routerLinkActive #rla="routerLinkActive"
+                    [routerLinkActiveOptions]="{exact:false}"
+                    [active]="rla.isActive">
+                     {{link.name}}
+                  </a>
+              </nav>           
+            </mat-toolbar>
+
+          <!-- </div> -->
+
+            <!-- all page contents are rendered here -->
+           <div style="margin-top:0px;">
+             <!-- sticky social media bar -->
+            <!-- <div class="icon-bar">
+              <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a> 
+              <a href="#" class="twitter"><i class="fab fa-twitter"></i></a> 
+              <a href="#" class="google"><i class="fab fa-google"></i></a> 
+              <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div> -->
+            <!-- router content -->
+            <ng-content></ng-content>
+          </div>
+            
+          </mat-sidenav-content>
+        </mat-sidenav-container>

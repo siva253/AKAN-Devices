@@ -1,0 +1,11 @@
+
+
+To use mail service:                    with angular
+-------------------                     ---------------
+index.html                              index.html
+<base href="/my-angular-app/">          <base href="/">
+
+setp1: npm install                      npm install
+stpe2: ng build                         ng serve --open
+step3: node server 
+

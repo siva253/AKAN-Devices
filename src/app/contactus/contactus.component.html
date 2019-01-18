@@ -1,0 +1,121 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <mat-card>
+        <h4 class="Header contactHeader">Talk to us</h4>
+        <br/>
+        <form (ngSubmit)="onSave(contForm)" #contForm="ngForm">
+          <!-- Name Field -->
+          <mat-form-field class="applyInputStyle">
+            <input matInput placeholder="Name" [formControl]="name" [(ngModel)]="contactModel.cont_Name" name="cont_Name">
+          </mat-form-field>
+
+          <!-- Email Field -->
+          <mat-form-field class="applyInputStyle">
+            <input matInput placeholder="Email" [formControl]="email" [(ngModel)]="contactModel.cont_Email" name="cont_Email">
+            <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error>
+          </mat-form-field>
+
+          <!-- Phone Field -->
+          <mat-form-field class="applyInputStyle">
+            <input matInput placeholder="Phone" [formControl]="phone" [(ngModel)]="contactModel.cont_Phone" name="cont_Phone">
+          </mat-form-field>
+
+          <!-- Country -->
+          <mat-form-field>
+            <mat-select placeholder="Country" [formControl]="country" [(ngModel)]="contactModel.cont_Country" required>
+              <mat-option *ngFor="let country of countries" [value]="country.code" >
+                {{country.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="country.hasError('required')">Please choose Country</mat-error>
+            <mat-hint>{{country.value?.sound}}</mat-hint>
+          </mat-form-field>
+
+          <!-- Location Field -->
+          <mat-form-field class="applyInputStyle">
+            <input matInput placeholder="Location" [formControl]="location" [(ngModel)]="contactModel.cont_Location" name="cont_Location">
+          </mat-form-field>
+
+          <!-- Message Field -->
+          <mat-form-field class="applyInputStyle">
+            <textarea matInput placeholder="Message" [(ngModel)]="contactModel.cont_Message" name="cont_Message"></textarea>
+          </mat-form-field>
+
+          <!-- send button -->
+          <button type="submit" [disabled]="loader" mat-raised-button>GET IN TOUCH</button>
+          <!-- [disabled]="!contForm.form.valid || email.invalid" -->
+
+          <!-- response message -->
+          <span style="margin-left: 25px;">
+            <!-- form validation message -->
+            <span *ngIf="forminfomessage && !(mailsuccess || mailfailed)">
+              <i class="material-icons" style="color:indianred;">info</i>
+              <small class="alert-danger">{{forminfomessage}}</small>
+            </span>
+            <!-- success -->
+            <span *ngIf="mailsuccess">
+              <i class="material-icons" style="color:green;">check_circle</i>
+              <small Class="alert-success">{{forminfomessage}}</small>
+            </span>
+            <!-- failed -->
+            <span *ngIf="mailfailed">
+              <i class="material-icons" style="color:indianred;">highlight_off</i>
+              <small class="alert-danger">{{forminfomessage}}</small>
+            </span>
+            <!-- loader -->
+            <img *ngIf="loader" src="assets/Spinners/email_load.gif" style="width:30px; height:30px;" />
+          </span>
+        </form>
+      </mat-card>
+    </div>
+
+    <div class="col-md-1">&nbsp;</div>
+
+    <div class="col-md-4">
+      <mat-card class="addressCard">
+        <h4 class="Header">Address</h4>
+        <br>
+        <ul style="list-style: none;padding: 0%">
+          <li>
+            <div class="icon">
+              <i class="material-icons"> phone</i>&nbsp;&nbsp;
+            </div>
+            <div class="text">
+              +91 99999 99999 / 99999 99999
+            </div>
+          </li>
+          <br>
+          <li>
+            <div class="icon">
+              <i class="material-icons">email</i>&nbsp;&nbsp;
+            </div>
+            <div class="text">
+              <a href="mailto:aachalla@info-sun.com">aachHFGHalla@info-sun.com</a>
+            </div>
+          </li>
+        </ul>
+      </mat-card>
+    </div>
+
+    <div class="col-md-1"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <mat-card class="addressmap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951.6758853404308!2d78.42161582922334!3d17.42600917880762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb974ec0000001%3A0xfef2e9664c619d76!2sInfosun+Technologies+Private+Limited!5e0!3m2!1sen!2sin!4v1541500650549"
+          width="100%" height="250" style="border:0"></iframe>
+      </mat-card>
+      <br>
+    </div>
+  </div>
+</div>

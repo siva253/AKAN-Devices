@@ -1,0 +1,24 @@
+.material-icons.md-36 {
+     font-size: 36px; 
+}
+
+::ng-deep .mat-dialog-container{
+   box-shadow: none;
+   background: none;
+}
+
+::ng-deep .mat-dialog-container .ng-tns-c9-0 .ng-trigger ng-trigger-slideDialog .ng-star-inserted{
+    padding: 0;
+}
+
+.mat-button .mat-icon-button{
+    max-width: 15px;
+    min-width: 5px;
+}
+
+button{
+    width:20px;
+    height: 20px;
+    outline: none;
+}
+

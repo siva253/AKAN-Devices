@@ -1,0 +1,14 @@
+<ngb-pagination *ngIf="(isHandset$ | async) && (currentProducts.length > 0)" class="d-flex justify-content-center mt-4" [collectionSize]="pageCollectionSize" [(page)]="page"></ngb-pagination>
+
+<section class="prods-mobile">
+    <ng-container *ngFor="let item of currentProducts;let i = index">
+        <mat-card class="prod-card-mobile box" *ngIf="(i < (page*6)) && (i >= (page*6)-6)" (click)="getSelectedProduct(item)">
+          <mat-card-content>
+              <img [src]="item.imgpath" [alt]="item.name" layout-fill width="100%"> 
+              <h5>{{item.name}}</h5>
+          </mat-card-content>
+        </mat-card>
+    </ng-container>
+  </section>
+    
+<ngb-pagination *ngIf="currentProducts.length > 0" class="d-flex justify-content-center" [collectionSize]="pageCollectionSize" [(page)]="page"></ngb-pagination>

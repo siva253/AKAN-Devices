@@ -1,0 +1,249 @@
+/* border separator */
+.divBorder
+{
+  top: 0px;
+  padding: 0px 2px 20px 3px;    
+  border-width: 2px;
+  border-bottom: 1px #86AC41 solid;
+  width: 100%;
+  max-width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+.wrapperbox{
+    height: 40px;
+    width: 40px;
+    background-color: #34675C;
+}
+
+.v-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding-left: 75px;
+  }
+
+
+/* mouseover animation */
+/* start */
+
+.hvrbox,
+.hvrbox * {
+  box-sizing: border-box;
+}
+
+.hvrbox {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 230px;
+  height: 230px;
+
+}
+.hvrbox-1{
+  background-color: #324851;
+  border: 4px solid #324851;
+}
+.hvrbox-2{
+  background-color: #00AD6E;
+  border: 4px solid #00AD6E;
+}
+.hvrbox-3{
+  background-color: #1995AD;
+  border: 4px solid #1995AD;
+}
+
+.hvrbox:hover {
+  background-color: #ffff;
+  cursor: pointer;
+}
+    
+.hvrbox-default-text{
+  width: 100%;
+  text-align: center;
+  font-size:16px;
+  font-weight:bold;
+  color: #fff;
+  position: absolute;
+  bottom:20%;
+  top: 60%;
+  padding: 15px 0px 15px 0px;
+  transition: top ease 0.2s;
+}
+
+.hvrbox-icon-wrapper{
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.hvrbox-icon-style{
+  border-color:#324851;
+  /* border-width:1px; */
+  /* border: 2px solid #fff; */
+  height:80px;
+  width:auto;
+  line-height:80px;
+  color:#ffffff;
+  font-size:100px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.hvrbox:hover .hvrbox-icon-style{
+  color: #34675C;
+  /* border: 2px solid #34675C; */
+}
+
+.hvrbox:hover .hvrbox-default-text{
+  top: 50%;
+  color: #34675C;
+}
+    
+.hvrbox .hvrbox-layer_top {
+  opacity: 0;
+  position: absolute;
+  top: 75%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  color: #fff;
+  padding: 15px;
+  -moz-transition: all 0.2s ease-in-out 0s;
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  -ms-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+    
+.hvrbox:hover .hvrbox-layer_top,
+.hvrbox.active .hvrbox-layer_top {
+  opacity: 1;
+}
+    
+.hvrbox .hvrbox-text_mobile {
+  color:#324851;
+  font-size: 17px;
+  margin-top: 5px;
+  padding-top: 2px;
+  display: block;
+  text-align: center;
+}
+.hvrbox.active .hvrbox-text_mobile {
+  display: block;
+}
+    
+/* slideup from bottom */
+.hvrbox .hvrbox-layer_slideup {
+  -moz-transform: translateY(50%);
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+}
+.hvrbox:hover .hvrbox-layer_slideup,
+.hvrbox.active .hvrbox-layer_slideup {
+  -moz-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+/* end */
+
+
+/* div as bar with image & contact button */
+/* start */
+.imagebar{
+  background-image: url('../../assets/banners/divbanner/home_div_img_4.jpg');
+  min-height:100px;
+  text-align: center;
+  color: white;
+  background-repeat: repeat-x;
+  background-size: cover;
+}
+.imagebar-text{
+  position: relative;
+  text-align: center;
+  width: 100%;
+  top: 50%; 
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+::ng-deep .mat-raised-button{
+  margin-top:10px;
+  font-size: inherit;
+  height:40px;
+  color: white;
+  background-color: #86AC41;
+  /* rgb(0,45,114); */
+}
+/* end */
+
+
+/* flipbox animation */
+/* start */
+
+.flip_container {
+  position: relative;
+  margin: 10px auto;
+  width: 375px;
+  height: 150px;
+  z-index: 1;
+}
+.flip_container {
+  perspective: 1000;
+}
+.flip_card {
+  text-align:center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 4px;
+
+  transform-style: preserve-3d;
+  transition: all .4s cubic-bezier(.2,.85,.4,1.275);
+}
+.flip_container:hover .flip_card {
+  transform: rotateY(180deg);
+  /* box-shadow: -5px 5px 5px #aaa; */
+    transition: all 0.2s linear;
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  color:#1995AD; 
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  background-color: #00AD6E;
+  border-radius: 4px;
+}
+
+.flip_card_icon{
+  border-color:#1995AD;
+  border-width:1px;
+  background-color: #1995AD;
+  box-sizing:content-box;
+  height:80px;
+  width:80px;
+  line-height:80px;
+  vertical-align: top;
+  color:#ffffff;
+  font-size:35px;
+  border-radius: 50%;
+  text-align: center;
+  margin: auto;  
+}
+
+/* end */

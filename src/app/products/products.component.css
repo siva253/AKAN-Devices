@@ -1,0 +1,105 @@
+/* border separator */
+.divBorder
+{
+  top: 0px;
+  padding: 0px 2px 20px 3px;    
+  border-width: 2px;
+  border-bottom: 1px #86AC41 solid;
+  width: 100%;
+  max-width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+a .collection-product{
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+}
+.collection-product{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+
+    flex-basis: 100%;
+
+    transition: all 0.5s;
+    box-shadow: 0 4px 15px rgba(47,59,60,0.1);
+
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+.collection-product-1_topborder{
+    border-top-color: #1995AD;
+}
+.collection-product-2_topborder{
+    border-top-color: #86AC41;
+}
+.collection-product-3_topborder{
+    border-top-color: #34675C;
+}
+
+.pic {
+    cursor: pointer;
+    float: left;
+    height: 300px;
+    width: 300px;
+    margin: 20px;
+    overflow: hidden;
+  }
+.grow img {
+    height: 100%;
+    width: 100%;
+   
+    -webkit-transition: all 1s ease;
+       -moz-transition: all 1s ease;
+         -o-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+            transition: all 1s ease;
+}
+.grow img:hover {
+    width: 400px;
+    height: 400px;
+}
+
+.collection-product_title{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    line-height: 1;
+    font-weight: normal;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-decoration: none;
+    color: #324851;
+}
+.collection-product_bar{
+    min-height: 70px;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: #fff;
+    
+}
+.collection-product-1_barbg{
+    background-color: #1995AD;
+}
+.collection-product-2_barbg{
+    background-color: #86AC41;
+}
+.collection-product-3_barbg{
+    background-color: #34675C;
+}

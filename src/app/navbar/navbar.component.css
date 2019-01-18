@@ -1,0 +1,191 @@
+ 
+/* ink bar below the tabs*/
+::ng-deep .float-right .mat-ink-bar {
+   background-color: var(--primary-color,white) !important;
+}
+::ng-deep .mat-tab-header[_ngcontent-c2], .mat-tab-nav-bar[_ngcontent-c2]
+          .mat-tab-header[_ngcontent-c1], .mat-tab-nav-bar[_ngcontent-c1]{
+    border-bottom: 0px solid rgba(0,123,255);
+}
+
+/*for <a> in mat-tab-nav-bar*/
+::ng-deep .mat-tab-label[_ngcontent-c2], .mat-tab-link[_ngcontent-c2]
+          .mat-tab-label[_ngcontent-c1], .mat-tab-link[_ngcontent-c1]{
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    min-width:90px;
+}
+
+
+/* Home logo button*/
+.btn-outline-primary{
+      border-color:white;
+      margin-left:3px;
+}
+.btn-outline-primary:hover {
+    background-color:white;
+}
+
+/*Navigation Bar Height*/
+.nav-height{
+    min-height: 80px;
+}
+
+
+/* side nav in mobile view styles*/
+.example-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }  
+
+
+  .mat-toolbar.mat-primary{
+      background-color:#324851;
+  }
+  .fixed-toolbar{
+    z-index: 999;
+    /* position: fixed */
+  }
+  .mat-toolbar{
+      background-color:#324851;
+      /* rgb(0,45,114); */
+      color: #86AC41;
+  }
+  .sidenav-container {
+    height: 100%;
+    background-color: #F1F1F2
+     /* #F7F5E6; */
+  }
+  
+  .sidenav {
+    width: 200px;
+    box-shadow: 3px 0 6px rgba(0,0,0,0.24);
+  }
+  .hidden{
+    display: none;
+  }  
+  .spacer{
+      flex: 1 1 auto;
+  }
+
+
+
+/* sticky social bar */
+/* start */
+.icon-bar {
+    position: fixed;
+    top: 67.3%;
+    right: 0;
+    z-index: 100;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    box-shadow: 0 0 8px #324851;
+  }
+  
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  
+  .icon-bar a:hover {
+    background-color: #324851;
+  }
+  
+  .facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .google {
+    background: #dd4b39;
+    color: white;
+  }
+  
+  .linkedin {
+    background: #007bb5;
+    color: white;
+  }
+/* end */
+
+/* on top shrink navbar */
+/* start */
+.topnavbar {
+  background-color: #00AD6E;
+  color: white;
+  position: sticky;
+  width: 100%;
+  height: 28px;
+  display: block;
+  transition: top 0.1s;
+  scroll-behavior: unset;
+  text-align: left ;
+  padding-left: 18px;
+  padding-right: 10px;
+  padding-top: 5px;
+  font-weight:normal;
+  font-size: 13px; 
+
+}
+.mainNavShrink{
+  position: fixed;
+  transition: top 0.5s;
+  /* transition-delay: s; */
+}
+/* end */
+
+/*tool bar
+::ng-deep .mat-toolbar {
+    background-color: var(--primary-color,rgb(0,45,114)) !important;
+}
+
+.example-fill-remaining-space {
+     This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. 
+    flex: 1 1 auto;
+  }
+ ::ng-deep .mat-toolbar-row, .mat-toolbar-single-row {
+    height: 90px;
+} 
+::ng-deep .mat-toolbar[_ngcontent-c1]{
+    color:white;
+}
+*/
+
+/*for <a> in mat-tab-nav-bar*/
+/* .linkstyle{
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    color: white;
+} */
+/* ::ng-deep .mat-tab-link:hover{
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    color: white;
+} */
