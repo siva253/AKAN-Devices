@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 })
 export class ServicesComponent {
 
-  constructor(private router: Router) { 
-    
+  constructor(private router: Router) {
   }
 
+  // navigate to contact page on click
   onContact(){
     this.router.navigateByUrl('/contactus');
   }

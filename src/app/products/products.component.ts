@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductCategory } from '../Models/ProductCategories';
+import { ProductCategory } from '../shared/Models/ProductCategories';
 
 
 @Component({

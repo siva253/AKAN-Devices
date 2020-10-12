@@ -1,75 +1,25 @@
-<!-- <carousel>
-  <slide>
-    <img src="assets/banners/1.jpg" alt="first slide" style="display: block;max-height: 300pt; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-        <h3>First slide label</h3>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
-  </slide>
-  <slide>
-    <img src="assets/banners/2.jpg" alt="second slide" style="display: block; max-height: 300pt;width: 100%;">
-  </slide>
-  <slide>
-    <img src="assets/banners/3.jpg" alt="third slide" style="display: block;max-height: 300pt; width: 100%;">
-  </slide>
-</carousel>  -->
-
-<!--
-<div id="slider">
-  <figure>
-  <img src="../../assets/banners/1.jpg" alt>
-  <img src="../../assets/banners/2.jpg" alt>
-  <img src="../../assets/banners/3.jpg" alt>
-  </figure>
-</div> -->
-
-<!-- <ngb-carousel *ngIf="images">
-  <ng-template ngbSlide>
-    <img [src]="../../assets/banners/1.jpg" alt="Random first slide">
-    <div class="carousel-caption">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <img [src]="../../assets/banners/2.jpg" alt="Random second slide">
-    <div class="carousel-caption">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <img [src]="../../assets/banners/3.jpg" alt="Random third slide">
-    <div class="carousel-caption">
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </div>
-  </ng-template>
-</ngb-carousel> -->
-
 <!-- carousel start-->
 <div>
   <carousel>
     <!-- slide-1 -->
-    <slide>
-        <img src="assets/banners/11.png" alt="third slide" style="display: block;max-height: 300pt; width: 100%;">
-        <div class="carousel-caption d-none d-md-block">
-            <h3>First slide label</h3>
-            <p>There is no free developer of a quiver propaganda soft sometimes.</p>
-        </div>
-    </slide>
+    <!-- <slide>
+      <img class="carousel-image" src="assets/banners/11.png" alt="third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>First slide label</h3>
+        <p>There is no free developer of a quiver propaganda soft sometimes.</p>
+      </div>
+    </slide> -->
     <!-- slide-2 -->
     <slide>
-        <img src="assets/banners/13.png" alt="third slide" style="display: block;max-height: 300pt; width: 100%;">
+      <img class="carousel-image" src="assets/banners/13.png" alt="third slide">
     </slide>
     <!-- slide-3 -->
     <slide>
-      <img src="assets/banners/15.png" alt="third slide" style="display: block;max-height: 300pt; width: 100%;">
-  </slide>
+      <img class="carousel-image" src="assets/banners/15.png" alt="third slide">
+    </slide>
   </carousel>
 </div>
 <!-- carousel end -->
-
 
 <!-- heading-1 -->
 <div class="row no-gutters">
@@ -85,39 +35,37 @@
 <div class="col-md-12 divBorder"></div>
 </div>
 
-
 <!-- icons with mouse over color change -->
 <div class="row no-gutters">
 <!-- mouseover icon-1 -->
 <div class="col-md-3 icon">
-  <div class="icon">
+  <div class="icon icon-mhover">
     <i class="fontawesome-icon fa fa-rocket circle-yes iconstyle "></i>
     <h2 class="icontitle">Startup</h2>
   </div>
 </div>
 <!-- mouseover icon-2 -->
 <div class="col-md-3 icon">
-  <div class="icon">
+  <div class="icon icon-mhover">
     <i class="fontawesome-icon  fa fa-cloud iconstyle"></i>
     <h2 class="icontitle">IoT Platform</h2>
   </div>
 </div>
 <!-- mouseover icon-3 -->
 <div class="col-md-3 icon">
-  <div class="icon">
+  <div class="icon icon-mhover">
     <i class="fontawesome-icon  fa fa-microchip iconstyle"></i>
     <h2 class="icontitle">Hardware</h2>
   </div>
 </div>
 <!-- mouseover icon-4 -->
 <div class="col-md-3 icon">
-  <div class="icon">
+  <div class="icon icon-mhover">
     <i class="fontawesome-icon  fa fa-wifi iconstyle"></i>
     <h2 class="icontitle">Wireless</h2>
   </div>
 </div>
 </div>
-
 
 <!-- div with image bar and quote -->
 <div class="row no-gutters">
@@ -127,7 +75,6 @@
     </div>
 </div>
 </div>
-
 
 <!-- heading-2 -->
 <div class="row no-gutters">
@@ -142,7 +89,6 @@
 </div>
 <div class="col-md-12 divBorder"></div>
 </div>
-
 
 <!-- icons with mouse over animation -->
 <!-- start -->
@@ -213,14 +159,13 @@
               </div>
         </div>
         <div class="col col-md-7 pr-0" style="padding-left: 15px;">
-            <span class="animationicontitle">IOT and Cloud</span>
+            <span class="animationicontitle">IoT and Cloud</span>
         </div>
       </div>
     </div>
     <div class="col">&nbsp;</div>
 </div>
 <!-- end -->
-
 
 <!-- application features on fixed image -->
 <div class="row no-gutters imgbarfixed mb-2">
@@ -229,17 +174,17 @@
       <div class="col-md-12" style="padding-left: 30px;">
         <h2 style="margin-bottom: 20px;">
           <span>
-              Learn-app’s Safety and Monitoring with IoT Solution
+              AKAN's Safety and Monitoring with IoT Solution
           </span>
         </h2>
-        <ul style="list-style-type: none; color:#86AC41; line-height: 60px;">
+        <ul class="feature-list">
           <!-- feature-1 -->
           <li>
               <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-clock fa-stack-1x fa-inverse"></i>
               </span>
-              <span style="color:white; font-weight: 100; font-size:23px;  padding-left: 15px;">Real Time View of Things</span>
+              <span class="feature-list-item-text">Real Time View of Things</span>
           </li>
           <!-- feature-2 -->
           <li>
@@ -247,7 +192,7 @@
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-comment fa-stack-1x fa-inverse"></i>
               </span>
-              <span style="color:white; font-weight: 100; font-size:23px; padding-left: 15px;">Instant Notification Alerts</span>
+              <span class="feature-list-item-text">Instant Notification Alerts</span>
           </li>
           <!-- feature-3 -->
           <li>
@@ -255,7 +200,7 @@
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-volume-up fa-stack-1x fa-inverse"></i>
               </span>
-              <span style="color:white; font-weight: 100; font-size:23px; padding-left: 15px;">Instant Voice Alerts</span>
+              <span class="feature-list-item-text">Instant Voice Alerts</span>
           </li>
           <!-- feature-4 -->
           <li>
@@ -263,14 +208,13 @@
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-chart-bar fa-stack-1x fa-inverse"></i>
               </span>
-              <span style="color:white; font-weight: 100; font-size:23px; padding-left: 15px;">Data Analysis</span>
+              <span class="feature-list-item-text">Data Analysis</span>
           </li>
         </ul>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- heading-3 -->
 <div class="row no-gutters">
@@ -283,7 +227,6 @@
 </div>
 <div class="col-md-12 divBorder" style="max-width: 35%;"></div>
 </div>
-
 
 <!-- animating percentage of ExtraFeatures -->
 <!-- begin -->
@@ -310,7 +253,7 @@
 <div class="col-md-4 translayer">
   <div class="text-center v-center">
     <div class="counterbox">
-      <span style="font-size: 50px;" appCountToCounter [toValue]="75" (onCount)="counter3 = $event" >{{counter3}}%</span>
+      <span style="font-size: 50px;" appCountToCounter [toValue]="25" (onCount)="counter3 = $event" >{{counter3}}%</span>
       <h5>Reduction In Development Time</h5>
     </div>
   </div>

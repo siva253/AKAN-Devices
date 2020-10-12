@@ -2,14 +2,15 @@
     <div class="row no-gutters">
         <div class="col-md-12">
             <app-navbar>
+                <div #spinnerElement style="text-align:center">
+                    <app-overlayloader></app-overlayloader>
+                </div>
                 <router-outlet></router-outlet>
                 <button class="goTopBtn" (click)="onTop()" [ngStyle]="{'visibility': isPageScrolled ? 'visible' : 'hidden'}">
-                    <!-- <i class="fas fa-arrow-up"></i> --><i class="fas fa-arrow-alt-circle-up"></i>
-
+                    <i class="fas fa-arrow-alt-circle-up"></i>
                 </button>
                 <app-footer></app-footer>
             </app-navbar>
         </div>
     </div>
-</div>   
-
+</div>

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
 
-import { Product } from '../../Models/Product';
+import { Product } from '../../shared/Models/Product';
 
 @Component({
   selector: 'app-productsgrid',

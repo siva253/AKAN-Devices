@@ -1,6 +1,7 @@
-import { Country } from "../Models/Country";
+import { Country } from "../shared/Models/Country";
 
-export const countries: Country[] = [{ name: "Australia", dial_code: "+61", code: "AU" },
+export const countries: Country[] = [
+{ name: "Australia", dial_code: "+61", code: "AU" },
 { name: "Canada", dial_code: "+1", code: "CA" },
 { name: "China", dial_code: "+86", code: "CN" },
 { name: "India", dial_code: "+91", code: "IN" },

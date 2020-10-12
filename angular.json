@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-angular-app": {
+    "AKANDevices": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,14 +13,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-angular-app",
+            "outputPath": "dist/AKANDevices",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/web.config",
+              "src/server.js",
+              "src/.env"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -53,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "my-angular-app:build"
+            "browserTarget": "AKANDevices:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "my-angular-app:build:production"
+              "browserTarget": "AKANDevices:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-angular-app:build"
+            "browserTarget": "AKANDevices:build"
           }
         },
         "test": {
@@ -98,7 +101,7 @@
         }
       }
     },
-    "my-angular-app-e2e": {
+    "AKANDevices-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -106,11 +109,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "my-angular-app:serve"
+            "devServerTarget": "AKANDevices:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "my-angular-app:serve:production"
+              "devServerTarget": "AKANDevices:serve:production"
             }
           }
         },
@@ -126,5 +129,5 @@
       }
     }
   },
-  "defaultProject": "my-angular-app"
+  "defaultProject": "AKANDevices"
 }

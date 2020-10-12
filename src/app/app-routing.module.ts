@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {HomeComponent} from './home/home.component';
 import {ServicesComponent} from './services/services.component';
-import {ProductslistComponent} from './products/productslist.component';
+import {ProductslistComponent} from './products/productslist/productslist.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ProductsComponent } from './products/products.component';
@@ -23,10 +23,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes,{scrollPositionRestoration: 'enabled'})
   ],
   exports:[ RouterModule],
   declarations: []
 })
 export class AppRoutingModule { }
-

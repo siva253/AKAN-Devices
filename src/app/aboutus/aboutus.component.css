@@ -1,31 +1,78 @@
-/* .imagebar{
-    background-image: url('../../assets/banners/aboutus/bgimg_1.jpg');
-    background-size: cover;
-    min-height:100%;
-    text-align: center;
-    color: white;
-    background-repeat: repeat-x;
-  }
-  .imagebar-text{
-    position: relative;
-    text-align: center;
-    width: 100%;
-    top: 50%; 
-    transform: translateY(-50%);
-    font-size: 20px;
-  }
-   */
-
-   .bg-overlay {
-    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("../../assets/banners/aboutus/bgimg_1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    text-align: center;
-    color: #fff;
-    /* display: flex; */
-    height: 450px;
-    padding-top: 310px;
-    padding-bottom: 448px;
+/* aboutus page desing-2 styles */
+.banner{
+  position: relative;
+  background: url("../../assets/banners/aboutus/bgimg_3.jpg");
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
+.banner2{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/banners/aboutus/bgimg_3.jpg");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 100px 0 100px;
+}
+
+/* border separator */
+.divBorder{
+  top: 0px;
+  padding: 0px 2px 20px 3px;    
+  border-width: 2px;
+  border-bottom: 1px #86AC41 solid;
+  width: 100%;
+  max-width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+/* accordian styles */
+/* start */
+::ng-deep .mat-expansion-panel{
+  border-bottom: 1px solid #34675C;
+  color: #34675C;
+}
+.wrapper{
+  border-width: 1px 1px 0px 1px;
+  border-style: solid;
+  border-color:#34675C;
+}
+
+::ng-deep .mat-expansion-indicator::after{
+  color: #34675C;
+}
+
+.mat-expanded > .mat-expansion-panel-header{
+  background-color: #34675C;
+  box-shadow: inset 0 50px 0 0 #34675C;
+  color: white;
+}
+.mat-expanded > ::ng-deep .mat-expansion-indicator::after{
+  color:white;
+}
+
+.mat-expansion-panel > .expansion_header {
+  font-size: 18px;
+  box-shadow: inset 0 0 0 0 #34675C;
+	-webkit-transition: all ease 0.3s;
+	-moz-transition: all ease 0.3s;
+	transition: all ease 0.3s;
+}
+.mat-expansion-panel > .expansion_header:hover{
+  box-shadow: inset 0 50px 0 0 #34675C;
+  color: white;
+}
+.mat-expansion-panel > .expansion_header:hover > ::ng-deep .mat-expansion-indicator::after{
+  color: white;
+}
+
+::ng-deep .mat-expansion-panel-body{
+  font-size: 17px;
+  color: rgba(0,0,0,.87);
+}
+/* end */

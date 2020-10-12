@@ -1,0 +1,51 @@
+/* border separator */
+.divBorder
+{
+  top: 0px;
+  padding: 0px 2px 20px 3px;    
+  border-width: 2px;
+  border-bottom: 1px #86AC41 solid;
+  width: 100%;
+  max-width: 10%;
+  margin-right: auto;
+  margin-left: 15px;
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+.goback{
+  text-decoration: none;
+  color: #324851;
+  padding: 2px;
+
+  background:
+  linear-gradient(
+    to bottom, #86AC41 0%,
+    #86AC41 100%
+  );
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 1px;
+  transition: background-size .2s;
+}
+
+
+::ng-deep .subnav .mat-tab-label{
+  background-color: #2a524a;
+  color: white;
+}
+::ng-deep .subnav .mat-tab-label-active{
+  background-color: transparent;
+  color: #2a524a;
+  font-weight: bold;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #2a524a;
+  height: 4px;
+}
+
+p{
+  text-align: justify;
+  text-justify: inter-word;
+}

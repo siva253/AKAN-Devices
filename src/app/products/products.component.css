@@ -61,7 +61,7 @@ a .collection-product{
         -ms-transition: all 1s ease;
             transition: all 1s ease;
 }
-.grow img:hover {
+.grow:hover img {
     width: 400px;
     height: 400px;
 }

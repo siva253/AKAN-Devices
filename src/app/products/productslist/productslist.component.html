@@ -1,0 +1,116 @@
+  <!-- overlay loader -->
+  <div #spinnerElement style="text-align:center;display:none;">
+      <app-overlayloader></app-overlayloader>
+  </div>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12 mt-4 text-right">
+      <b><i class="fas fa-angle-left"></i> <i class="fas fa-angle-left"></i> </b>
+      <a class="goback" routerLink="../../products"><b>BACK TO PRODUCTS
+      </b></a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3 style="text-align:left; font-size: 30px">
+        <span style="color:#86AC41">
+          {{currentCategory}}
+        </span>
+      </h3>
+    </div>
+    <div class="col-md-12 divBorder"></div> 
+  </div>
+
+  <!-- displays banner based on category -->
+  <div class="row" [ngSwitch]="productcategory">
+    <!-- case-1 -->
+      <ng-container *ngSwitchCase="'biometricandsecurity'">
+        <div class="col-md-4" style="padding-right: 15px;">
+          <img class="img-responsive" style="width:100%" src="assets/ProductsPics/ProductCategories/IOT_Collection_5.PNG" alt="" />
+        </div>
+        <div class="col-md-8" style="padding-top:auto;padding-bottom: auto; background-color:#fff;">
+            <div class="col-md-12" style="margin-top:auto;margin-bottom:auto; top:25%;">
+              <p>An individual’s physical characteristics used for automatic and instant verification to authenticate and provide access to a system based or facility.  Biological data is evaluated as the strongest foolproof security technique. </p>
+            </div>
+         </div>
+      </ng-container>
+    <!-- case-2 -->
+      <ng-container *ngSwitchCase="'hardwaredevices'">
+          <div class="col-md-4" style="padding-right: 15px;">
+            <img class="img-responsive" style="width:100%" src="assets/ProductsPics/ProductCategories/IOT_Collection_8.jpg" alt="" />
+          </div>
+          <div class="col-md-8" style="padding-top:auto;padding-bottom: auto; background-color:#fff;">
+              <div class="col-md-12" style="margin-top:auto;margin-bottom:auto; top:25%;">
+                <p>IoT hardware is a crucial component of a full IoT solution. A wide range of hardware devices for routing, sensors, bridges etc. are included in IoT Hardware components. </p>
+              </div>
+           </div>
+        </ng-container>
+      <!-- case-3 -->
+        <ng-container *ngSwitchCase="'iot'">
+            <div class="col-md-4" style="padding-right: 15px;">
+              <img class="img-responsive" style="width:100%" src="assets/ProductsPics/ProductCategories/IOT_Collection_7.jpg" alt="" />
+            </div>
+            <div class="col-md-8" style="padding-top:auto;padding-bottom: auto; background-color:#fff;">
+                <div class="col-md-12" style="margin-top:auto;margin-bottom:auto; top:20%;">
+                  <p>With more than 12 billion connected devices in the world, Innovative companies are adopting IoT strategy and technology. 
+                    This is mainly to rethink their products & services and also to redefine their relationships with customers, employees and partners. 
+                    Connecting the devices & machines in the physical world to the Internet creates multiple new digital opportunities for industries / conneting world.
+                  </p>
+                </div>
+             </div>
+          </ng-container>
+      </div>
+  </div>
+
+<!-- displays grid or description related to above category -->
+  <div class="row mt-5 mb-5 no-gutters">
+    <!-- If categories have products -->
+    <div class="col-md-10 ml-auto mr-auto" *ngIf="productsList.length > 0">
+      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4 subnav">
+        <ng-container *ngFor="let subCategory of currentSubCategory">
+          <mat-tab [label]="subCategory"> 
+            <app-productsgrid [products]="filterProducts(subCategory)" (selectedProduct)="getSelectedProduct($event)"></app-productsgrid>
+          </mat-tab>
+        </ng-container>
+      </mat-tab-group>
+    </div>
+  <!-- If categories not have products -->
+    <div class="col-md-10 ml-auto mr-auto" *ngIf="productsList.length == 0">
+      <ng-container *ngIf="productcategory === 'iot'">
+        <mat-card>
+          <h4><u>GPS Monitoring/Telematics</u></h4>
+          <p>
+            At the centre of telematics we have GPS. The first ever GPS navigation systems was released In 1990s, 
+            which opened up our eyes to the technologically advancement of tracking. 
+            With the technology of GPS locations and maps on our dashboards, the market for more telematics quickly started growing.
+            The new way of monitoring the location, movement, status and behaviour of a various tangible commodity, at your doorstep. 
+            This is achieved through a technological advancement called telematics or GPS Monitoring.
+          </p> 
+          <h4><u>M2M Connecting</u></h4>
+          <p>
+            M2M communication is mostly used for remote monitoring. 
+            M2M communication plays an important aspect of warehouse management, remote control, traffic control, logistic, 
+            robotics services, fleet management, supply chain management and telemedicine. 
+            It forms the basis for the Internet of Things (IoT). 
+            The key components of an M2M system include RFID, sensors, a Wi-Fi or cellular communications link & 
+            autonomic computing software which are programmed n such a manner that it helps all networked device to interpret data and make decisions. 
+            The most used type of M2M communication is telemetry, which is in use since the last century to transmit operational data.
+            Presently, M2M do not have any standardized connected device platform & mostly all M2M systems are built to be task- or device-specific. 
+            It is also expected that all M2M would become more pervasive and that vendors may need to agree upon standards for device-to-device communications.
+          </p>
+          <h4><u>Smart IoT Solutions</u></h4>
+          <ul>
+            <li>Future of Manufacturing</li>
+            <li>Industrial IOT</li>
+            <li>Digital Factories</li>
+            <li>Phrma industries</li>
+            <li>Chemical industries</li>
+            <li>Steel industries</li>
+            <li>FMCG</li>
+          </ul>
+        </mat-card>
+      </ng-container>
+    </div>
+  </div>

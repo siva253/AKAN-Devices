@@ -32,6 +32,21 @@ const app = express();
 //     console.log('server started with 8000');
 // })
 
+const allowedExt = [
+  '.js',
+  '.ico',
+  '.css',
+  '.png',
+  '.jpg',
+  '.woff2',
+  '.woff',
+  '.ttf',
+  '.svg',
+];
+
+
+   
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -48,18 +63,16 @@ app.post('/send-email',function(req,res){
         port: 465,
         secure: true,
         auth: {
-          user: 'akandevices@gmail.com',
-          pass: 'baru1234'
+          user: 'sivaapraasaad@gmail.com',
+          pass: '94417848'
         }
       });
   
       var mailOptions = {
-        from: 'akandevices@gmail.com',
-        to: 'akandevices@gmail.com',
-        cc:'sivadurgaprasad253@gmail.com',
-        bcc:'bhargavibandhu@gmail.com', 
-        subject: 'Email from visited Customer: ' + req.body.cont_Email,
-        text: 'Hello! Visited Customer ' + req.body.cont_Name +'. Details as follows: ',
+        from: 'sivaapraasaa@gmail.com',
+        to: 'sivadurgaprasad253@gmail.com',
+        subject: 'Email from my-angular-app visited user: ' + req.body.cont_Email,
+        text: 'Hello we have a user: ' + req.body.cont_Name +'. Below are the Details: ',
         html: `
         <div>Hello we have a user:<b>${req.body.cont_Name}</b>. Below are the Details:</div><br/>
         <table style="width:50%" border="1" rules="all" bgColor="lightskyblue">
@@ -72,16 +85,8 @@ app.post('/send-email',function(req,res){
           <td>${req.body.cont_Email}</td>
         </tr>
         <tr>
-          <th align="left">Phone:</th>
-          <td>${req.body.cont_Phone}</td>
-        </tr>
-        <tr>
           <th align="left">Location:</th>
           <td>${req.body.cont_Location}</td>
-        </tr>
-        <tr>
-          <th align="left">Country:</th>
-          <td>${req.body.cont_Country}</td>
         </tr>
         <tr>
           <th align="left">Message:</th>
@@ -103,21 +108,10 @@ app.post('/send-email',function(req,res){
 });
 
 app.all('/*',function(req,res){
-    res.sendFile(__dirname + '/dist/my-angular-app/index.html');
-});
-
-
-
-
-
-
-
-app.listen(8000);
-
-console.log('express started with 8000');
-
-var opn = require('opn');
-
-opn('http://localhost:8000').then(() => {
-    console.log('Browser Opened');
+  if (allowedExt.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
+    console.log(req.url);
+    res.sendFile(path.resolve(__dirname + `/dist/AKANDevices/${req.url}`));
+  }else{
+    res.sendFile(__dirname + '/dist/AKANDevices/index.html');
+  }
 });

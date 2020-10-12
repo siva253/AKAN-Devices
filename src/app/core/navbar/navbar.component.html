@@ -1,0 +1,70 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- SideNavigation bar when mobile view -->
+  <mat-sidenav #drawer class="sidenav"
+               [ngClass]="{hidden: !(isHandset$ | async)}"
+               fixedInViewport="false"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="!(isHandset$ | async)">
+    <div class="topnavbar"><span>call : {{requestCallBackNumber1}}</span></div>
+    <mat-toolbar>
+      <span>
+        <a routerLink="/home" style="cursor:pointer;">
+          <img src="assets/Logos/akan-logo-final-white.png" style="height:60px; width:100%;" alt="AKAN Logo"/>
+        </a>
+      </span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let link of appRoutes"
+                        [routerLink]="link.path"
+                        (click)="drawer.toggle()">
+        {{link.name}}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- all content pages with main navigationbar -->
+  <mat-sidenav-content>
+    <div class="topnavbar" #topNav [ngStyle]="{'top': isScrollDown ? '-25px' : '0'}">
+      <span>Request a call back: {{requestCallBackNumber1}} / {{requestCallBackNumber2}} </span>
+    </div>
+      <!-- Navigation bar when desktop view -->
+      <!-- <div   #mainNav> -->
+    <mat-toolbar color="primary" class="fixed-toolbar"  [ngClass]="{'mainNavShrink': isScrollDown, 'mainNavGradientBack' : !(isHandset$ | async) }" [ngStyle]="{'top': isScrollDown ? '0px' : '25px'}">
+      <!-- Hamburger button for sidenav when mobile view -->
+      <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <!-- application title / Logo -->
+      <!-- <span>AKAN Devices & Solutions</span> -->
+      <span>
+        <a routerLink="/home" style="cursor:pointer;">
+          <img src="assets/Logos/akan-logo-final-v2.png" style="height:70px;width:270px;" alt="AKAN Devices & Solutions"/>
+        </a>
+      </span>
+      <span class="spacer"></span>
+      <nav mat-tab-nav-bar class="float-right" *ngIf="!(isHandset$ | async)">
+        <a mat-tab-link *ngFor="let link of appRoutes"
+          [id] = "link.name"
+          [routerLink]="link.path"
+          routerLinkActive #rla="routerLinkActive"
+          [routerLinkActiveOptions]="{exact:false}"
+          [active]="rla.isActive">
+            {{link.name}}
+        </a>
+      </nav>           
+    </mat-toolbar>
+
+    <!-- all page contents are render here -->
+    <div style="margin-top:0px;">
+      <!-- router content -->
+      <ng-content></ng-content>
+    </div>  
+  </mat-sidenav-content>
+</mat-sidenav-container>

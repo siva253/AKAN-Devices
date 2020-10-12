@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, NgZone, Renderer, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import {
   Event,
   NavigationCancel,
@@ -7,36 +7,67 @@ import {
   NavigationStart,
   Router
 } from '@angular/router';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  loading = false;  
+export class AppComponent implements OnDestroy {
   isPageScrolled = false;
+  @ViewChild('spinnerElement') spinnerElement: ElementRef;
 
-  constructor(private router: Router) {
-    this.router.events.subscribe((event: Event) => {
+  routerSubscription: Subscription;
+  
+  constructor(
+    private router: Router,
+    private ngZone:NgZone,
+    private renderer:Renderer) {
+    this.routerSubscription = this.router.events.subscribe((event: Event) => {
       switch (true) {
         case event instanceof NavigationStart: {
-          this.loading = true;
+            this.ngZone.runOutsideAngular(() => {
+              setTimeout(()=> {
+                this.renderer.setElementStyle(
+                  this.spinnerElement.nativeElement,
+                  'display',
+                  'block'
+                )
+              },500);
+          });
           break;
         }
-
-        case event instanceof NavigationEnd:
-        case event instanceof NavigationCancel:
+        case event instanceof NavigationEnd:{
+          this.hideSpinner();
+          break;
+        }
+        case event instanceof NavigationCancel:{
+          this.hideSpinner();
+          break;
+        }
         case event instanceof NavigationError: {
-          this.loading = false;
+          this.hideSpinner();
           break;
         }
         default: {
+          this.hideSpinner();
           break;
         }
       }
     });
+  }
+
+  private hideSpinner(): void {
+    this.ngZone.runOutsideAngular(() => {
+      setTimeout(()=> {
+        this.renderer.setElementStyle(
+          this.spinnerElement.nativeElement,
+          'display',
+          'none'
+        )
+      },500);
+    })
   }
 
   @HostListener('window:scroll', ['$event']) 
@@ -49,5 +80,9 @@ export class AppComponent {
 
   onTop(){
     window.scroll(0,0);
+  }
+
+  ngOnDestroy(){
+    this.routerSubscription.unsubscribe()
   }
 }

@@ -1,0 +1,119 @@
+ 
+/* ink bar below the tabs*/
+::ng-deep .float-right .mat-ink-bar {
+  background-color: var(--primary-color,white) !important;
+}
+::ng-deep .mat-tab-header[_ngcontent-c2], .mat-tab-nav-bar[_ngcontent-c2]
+          .mat-tab-header[_ngcontent-c1], .mat-tab-nav-bar[_ngcontent-c1]{
+  border-bottom: 0px solid rgba(0,123,255);
+}
+
+/*for <a> in mat-tab-nav-bar*/
+::ng-deep .mat-tab-label[_ngcontent-c2], .mat-tab-link[_ngcontent-c2]
+          .mat-tab-label[_ngcontent-c1], .mat-tab-link[_ngcontent-c1]{
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+  min-width:90px;
+}
+
+
+/* Home logo button*/
+.btn-outline-primary{
+  border-color:white;
+  margin-left:3px;
+}
+.btn-outline-primary:hover {
+  background-color:white;
+}
+
+/*Navigation Bar Height*/
+.nav-height{
+  min-height: 80px;
+}
+
+
+/* side nav in mobile view styles*/
+.example-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+  
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+  
+.example-sidenav {
+  padding: 20px;
+}  
+
+::ng-deep .mat-nav-list .mat-list-item .mat-list-item-content{
+  border-bottom: 1px solid #324851;
+  font-weight: bold;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+
+.mat-toolbar.mat-primary{
+  background-color:#fff;
+  height: 75px;
+}
+.mainNavGradientBack{
+  background-color:#324851;
+  background: linear-gradient(to right,#ffff,#ffff,#ffff,#324851,#324851,#324851,#324851,#324851);
+}
+.fixed-toolbar{
+  z-index: 999;
+}
+
+/* sidenav header */
+.mat-toolbar{
+  background-color:#324851;
+  color: #86AC41;
+  height: 75px;
+}
+.sidenav-container {
+  height: 100%;
+  background-color: #fff;
+}
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,0.24);
+}
+.hidden{
+  display: none;
+}  
+.spacer{
+  flex: 1 1 auto;
+}
+
+/* on top shrink navbar */
+/* start */
+.topnavbar {
+  background-color: #00AD6E;
+  color: white;
+  width: 100%;
+  height: 28px;
+  display: block;
+  transition: top 0.1s;
+  scroll-behavior: unset;
+  text-align: left ;
+  padding-left: 18px;
+  padding-right: 10px;
+  padding-top: 5px;
+  font-weight:normal;
+  font-size: 13px; 
+}
+.mainNavShrink{
+  position: fixed;
+  transition: top 0.5s;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+/* end */

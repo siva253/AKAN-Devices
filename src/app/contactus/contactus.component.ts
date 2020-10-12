@@ -3,10 +3,12 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher } from '@angular/material/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { Contact } from '../Models/Contact';
-import { Country } from '../MOdels/Country';
+import { Contact } from '../shared/Models/Contact';
+import { Country } from '../shared/Models/Country';
 import { countries } from "../Data/countries-data";
-import { SendEmailService } from '../service/mail/send-email.service';
+import { SendEmailService } from '../core/service/mail/send-email.service';
+import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-contactus',
@@ -14,17 +16,22 @@ import { SendEmailService } from '../service/mail/send-email.service';
   styleUrls: ['./contactus.component.css']
 })
 export class ContactusComponent implements OnInit {
+  addressCardPh1 = environment.addressCardPhone1;
+  addressCardPh2 = environment.addressCardPhone2;
+  addressCardEmail = environment.addressCardEmail;
+  salesEmail = environment.salesEmail;
+  marketingEmail = environment.marketingEmail;
+
   mailsuccess: boolean = false;
   mailfailed: boolean = false;
   loader: boolean = false;
   forminfomessage: string = '';
-  phonePattern = "^[0-9]{10}$";
-
+  phonePattern = "^[0-9]{10,}$";
   contactModel: Contact;
   countries: Country[] = countries;
 
   name = new FormControl('', [Validators.required]);
-  email = new FormControl('', [Validators.email, Validators.required]);  //Validators.required,
+  email = new FormControl('', [Validators.email, Validators.required]);
   phone = new FormControl('', [Validators.required, Validators.pattern(this.phonePattern)]);
   country = new FormControl('', [Validators.required]);
   location = new FormControl('', [Validators.required]);
@@ -36,29 +43,29 @@ export class ContactusComponent implements OnInit {
     this.contactModel = new Contact();
   }
 
-  getErrorMessage() {
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
   onSave(form: NgForm) {
     this.mailsuccess = false;
     this.mailfailed = false;
     this.forminfomessage = '';
     this.loader = true;
 
-    if (this.name.invalid || this.email.hasError('email') || this.phone.invalid || this.country.invalid || this.location.invalid) {
+    if (this.name.invalid || !this.email.value || !this.phone.value || this.country.invalid || this.location.invalid) {
       this.loader = false;
       this.forminfomessage = 'Please fill the required fields.';
       return;
     }
-    
-    
+
+    if(this.email.hasError('email') || this.phone.invalid){
+      this.loader = false;
+      this.forminfomessage = 'Please fill the valid data.';
+      return;
+    }
+
     let selectedCountry = this.countries.find( c => c.code === this.contactModel.cont_Country);
-    this.contactModel.cont_Phone = selectedCountry.dial_code + " " + this.contactModel.cont_Phone;
-    this.contactModel.cont_Country = selectedCountry.name;
-  
-    debugger;
-    this.sendEmailService.RequestMail(this.contactModel).subscribe(
+    let sendContactModel = this.contactModel;
+    sendContactModel.cont_Phone = selectedCountry.dial_code + " " + this.contactModel.cont_Phone;
+    sendContactModel.cont_Country = selectedCountry.name;
+    this.sendEmailService.RequestMail(sendContactModel).subscribe(
       (data) => {
         this.loader = false;
         if (data.text() == 'Success') {
@@ -76,8 +83,8 @@ export class ContactusComponent implements OnInit {
         form.resetForm();
         this.loader = false;
         this.mailfailed = true;
-        this.forminfomessage = 'Failed to send mail try again.';
-      });
+        this.forminfomessage = 'Failed to send mail try again later.';
+    });
   }
 
   clearForm() {
@@ -87,5 +94,4 @@ export class ContactusComponent implements OnInit {
     this.country.reset('');
     this.location.reset('');
   }
-
 }

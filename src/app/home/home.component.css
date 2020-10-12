@@ -1,9 +1,15 @@
+/* carousel slide image */
+.carousel-image{
+  display: block;
+  max-height: 300pt;
+  width: 100%;
+}
+
 /* IOT icons */
 .iconstyle{
   border-color:#324851;
   border-width:1px;
   background-color: #324851;
-  /* #333333; */
   box-sizing:content-box;
   height:80px;
   width:80px;
@@ -13,13 +19,19 @@
   border-radius: 50%;
   text-align: center;
 }
-i.iconstyle:hover{
-  background-color: #86AC41;
-  /* #002d72; */
+
+.icon-mhover{
+  cursor: pointer;
+  -moz-transition: all 2s ease-in;
+  -o-transition: all 2s ease-in;
+  -webkit-transition: all 2s ease-in;
+  transition: all 2s ease-in;
 }
-i.iconstyle:hover + h2{
-  color:#86AC41;
-  /* #002d72; */
+.icon-mhover:hover h2{
+  color: #86AC41;
+}
+.icon-mhover:hover i{
+  background-color: #86AC41;
 }
 
 .icontitle{
@@ -157,6 +169,20 @@ i.iconstyle:hover + h2{
   color: white;
 }
 
+/* features on fixed image styles */
+.feature-list{
+  list-style-type: none;
+  color:#86AC41;
+  line-height: 60px;
+  padding:0px;
+}
+.feature-list-item-text{
+  color:white;
+  font-weight: 100;
+  font-size:23px;
+  padding-left: 15px;
+}
+
 /* animated counters vertical alignment */
 .v-center {
   position: relative;
@@ -181,84 +207,3 @@ i.iconstyle:hover + h2{
 .translayer{
   background-color:  rgba(0, 0, 0, 0.4);
 }
-
-
-.carousel-item {
-
-  display: block !important;
-  z-index: 1;
-  position: absolute;
-
-  opacity: 0;
-  visibility: hidden; 
-
-  /* transform: translateX(-100%);*/
-  transition-delay: 1s; 
-}
-
-.carousel-item.active {
-  position: relative;
-  left: 0;
-
-  visibility: visible ;
-  opacity: 1;
-
-  transition: all 1s ;
-  
-  /* transform: translateX(0%); */
-}
-
-
-
-
-
-/* .carousel-inner>.item {
-  -webkit-transition: 0s !important;
-  -o-transition: 0s !important;
-  transition: 0s !important;
-} */
-/* @-webkit-keyframes slide {
-  100% { left: 0; }
-}
-
-@keyframes slide {
-  100% { left: 0; }
-} */
-
-
-
-  
-  /* .carousel-item {
-        padding: 40px 55px; 
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-        position: absolute; 
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-        display: block !important; 
-  }
-  
-  .carousel-item.active {
-    z-index: 1;
-    opacity: 1;
-    transition-delay: .3s;
-    transform: none;
-    animation: slideFromLeft .8s;
-        animation-delay: .3s;
-  }
-  
-  @keyframes slideFromLeft {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: none;
-    }
-  } */
-
-
-
-
